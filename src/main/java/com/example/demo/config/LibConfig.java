@@ -1,9 +1,13 @@
 package com.example.demo.config;
 
 
+import com.example.demo.entity.Author;
+import com.example.demo.entity.Book;
 import com.example.demo.entity.LibUser;
 import com.example.demo.repository.LibUserRepository;
 import com.example.demo.role.LibUserRole;
+import com.example.demo.service.AuthorService;
+import com.example.demo.service.BookService;
 import com.example.demo.service.LibUserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -14,16 +18,23 @@ import java.time.Month;
 import java.util.List;
 
 @Configuration
-public class LibUserConfig {
+public class LibConfig {
 
     private final LibUserService libUserService;
 
-    public LibUserConfig(LibUserService libUserService) {
+    private final AuthorService authorService;
+
+    private final BookService bookService;
+
+    public LibConfig(LibUserService libUserService, AuthorService authorService, BookService bookService) {
         this.libUserService = libUserService;
+        this.authorService = authorService;
+        this.bookService = bookService;
     }
 
+
     @Bean
-    CommandLineRunner commandLineRunner(LibUserRepository libUserRepository)
+    CommandLineRunner commandLineRunner(LibUserRepository libUserRepository,AuthorService authorService,BookService bookService)
     {
         return args -> {
 
@@ -51,7 +62,22 @@ public class LibUserConfig {
 
             libUserService.addNewLibUser(alek);
 
-            //libUserRepository.saveAll(List.of(dominik,alek));
+            Author sapkowski =Author.builder()
+                    .name("Andrzej")
+                    .surname("Sapkowski")
+                    .build();
+
+            authorService.addNewAuthor(sapkowski);
+
+            Book wiedzmin = Book.builder()
+                    .title("Wiedźmin")
+                    .authors(sapkowski)
+                    .releaseYear(1990)
+                    .numberOfBooks(5)
+                    .availableBooks(5)
+                    .build();
+
+            bookService.addNewBook(wiedzmin);
 
         };
     }

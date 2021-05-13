@@ -16,7 +16,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Book_Authors {
+public class BookAuthors {
 
     @Id
     @GeneratedValue(

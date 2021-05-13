@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "lib")
+@RequestMapping(path = "lib/libuser")
 public class LibUserController {
 
     private final UserValidator userValidator;
