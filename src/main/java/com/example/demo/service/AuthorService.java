@@ -44,14 +44,14 @@ public class AuthorService {
 
     public void updateAuthor(Long authorId,String name,String surname)
     {
-        Author author = authorRepository.findAuthorById(authorId).orElseThrow(()->new IllegalStateException("author wint id "+ authorId+" doesn't exists"));
+        Author author = authorRepository.findAuthorById(authorId).orElseThrow(()->new IllegalStateException("author with id "+ authorId+" doesn't exists"));
 
         if(name!=null && name.length()>0 && !Objects.equals(author.getName(),name))
         {
             author.setName(name);
         }
 
-        if(surname!=null && surname.length()>0 & !Objects.equals(author.getSurname(),surname))
+        if(surname!=null && surname.length()>0 && !Objects.equals(author.getSurname(),surname))
         {
             author.setSurname(surname);
         }
