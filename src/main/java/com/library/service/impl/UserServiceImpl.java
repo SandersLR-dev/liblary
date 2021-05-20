@@ -25,7 +25,14 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     public void addUser(UserDto userDto) {
-        //TODO add transformer and implement save
+        User user = User.builder()
+                .name(userDto.getName())
+                .surname(userDto.getSurname())
+                .login(userDto.getLogin())
+                .dob(userDto.getDateOfBirth())
+                .role(userDto.getRole())
+                .hashPassword(passwordEncoder.encode(userDto.getPassword())).build();
+        userRepository.save(user);
     }
 
     public void deleteUser(String id) {

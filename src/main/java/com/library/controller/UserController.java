@@ -5,6 +5,7 @@ import com.library.domain.dto.user.UserDto;
 import com.library.domain.entity.User;
 import com.library.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,8 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
-    //TODO nie widzę potrzby używania tu custom-owego walidatora
-    //private final UserValidator userValidator;
     private final UserServiceImpl userService;
 
     @GetMapping
@@ -27,9 +26,10 @@ public class UserController {
         userService.addUser(user);
     }
 
-    @DeleteMapping(path = "{libuserId}")
-    public void deleteLibUser(@PathVariable("libuserId") String libUserId) {
-        userService.deleteUser(libUserId);
+    @DeleteMapping("/users/{user_id}")
+    @PreAuthorize("hasAnyRole('ADMIN')")
+    public void deleteLibUser(@PathVariable("user_id") String userId) {
+        userService.deleteUser(userId);
     }
 
     @PutMapping(path = "{libuserId}")
