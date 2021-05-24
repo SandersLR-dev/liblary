@@ -31,6 +31,7 @@ public class Book {
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
 
+    //TODO zastanowić się nad zmianą na Many to Many
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
