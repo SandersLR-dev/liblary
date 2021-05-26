@@ -18,6 +18,7 @@ public class CheckoutServiceImpl implements CheckoutService {
     private CheckoutRepository checkoutRepository;
 
     @Override
+    @Transactional
     public void createCheckout(CheckoutDto checkoutDto) {
 
         Checkout checkout = Checkout.builder()

@@ -31,5 +31,5 @@ public class BookDto {
     Publisher publisher;
 
     @NotBlank(message = "Category is mandatory")
-    Category category;
+    Set<Category> categories;
 }

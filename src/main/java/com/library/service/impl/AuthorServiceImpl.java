@@ -23,6 +23,8 @@ public class AuthorServiceImpl implements AuthorService {
 
     private final AuthorMapper authorMapper;
 
+    @Override
+    @Transactional
     public void createAuthor(AuthorDto authorDto) {
         Author author = Author.builder()
                 .name(authorDto.getName())

@@ -17,6 +17,7 @@ public class CategoryServiceImpl implements CategoryService {
     private CategoryRepository categoryRepository;
 
     @Override
+    @Transactional
     public void createCategory(CategoryDto categoryDto) {
         Category category = Category.builder()
                 .name(categoryDto.getName()).build();

@@ -17,10 +17,11 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Override
+    @Transactional
     public void createBook(BookDto bookDto) {
         Book book= Book.builder()
                 .title(bookDto.getTitle())
-                .category(bookDto.getCategory())
+                .categories(bookDto.getCategories())
                 .publisher(bookDto.getPublisher())
                 .releaseYear(bookDto.getReleaseYear())
                 .authors(bookDto.getAuthors()).build();

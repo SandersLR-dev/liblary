@@ -35,6 +35,7 @@ public class UserServiceImpl implements UserService {
         userRepository.save(user);
     }
 
+    @Transactional
     public void deleteUser(String id) {
 
         boolean exists = userRepository.existsById(id);
@@ -44,6 +45,7 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(id);
     }
 
+    @Transactional
     public void updateUser(String id, UserDto userDto) {
         User user = userRepository.findById(id).orElseThrow(UserNotFoundException::new);
         user.setDob(userDto.getDateOfBirth());

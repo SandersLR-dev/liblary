@@ -19,6 +19,7 @@ public class PublisherServiceImpl implements PublisherService {
     private PublisherRepository publisherRepository;
 
     @Override
+    @Transactional
     public void createPublisher(PublisherDto publisherDto) {
         Publisher publisher = Publisher.builder()
                 .name(publisherDto.getName()).build();
