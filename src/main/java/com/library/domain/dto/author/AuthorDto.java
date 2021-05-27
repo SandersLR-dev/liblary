@@ -13,9 +13,9 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class AuthorDto {
 
-    @NotBlank(message = "Name is mandatory")
-    String name;
+    private String id;
 
-    @NotBlank(message = "Surname is mandatory")
-    String surname;
+    private String name;
+
+    private String surname;
 }

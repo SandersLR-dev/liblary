@@ -1,6 +1,7 @@
 package com.library.domain.dto.book;
 
 
+
 import com.library.domain.entity.Author;
 import com.library.domain.entity.Category;
 import com.library.domain.entity.Publisher;
@@ -18,18 +19,17 @@ import java.util.Set;
 @Data
 public class BookDto {
 
-    @NotBlank(message = "Title is mandatory")
-    String title;
+    private String id;
 
-    @NotBlank(message = "Author is mandatory")
-    Set<Author> authors;
+    private String title;
 
-    @NotBlank(message = "Year is mandatory")
-    int releaseYear;
+    private Set<Author> authors;
 
-    @NotBlank(message = "Publisher is mandatory")
-    Publisher publisher;
+    private int releaseYear;
 
-    @NotBlank(message = "Category is mandatory")
-    Set<Category> categories;
+    private Publisher publisher;
+
+    private Set<Category> categories;
+
+
 }

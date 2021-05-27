@@ -3,7 +3,8 @@ package com.library.configuration;
 
 import com.library.domain.dto.user.UserDto;
 import com.library.domain.enums.UserRole;
-import com.library.service.UserService;
+
+import com.library.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -18,7 +19,9 @@ import java.time.Month;
 @RequiredArgsConstructor
 public class UserConfig {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
+
+
 
     @Bean
     CommandLineRunner commandLineRunner() {

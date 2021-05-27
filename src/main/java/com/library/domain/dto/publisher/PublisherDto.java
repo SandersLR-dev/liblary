@@ -14,6 +14,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class PublisherDto {
 
-    @NotBlank(message = "Name is mandatory")
-    String name;
+    private String id;
+
+    private String name;
 }

@@ -16,15 +16,10 @@ import java.time.LocalDate;
 @Data
 public class CheckoutDto {
 
-    @NotBlank(message = "User is mandatory")
-    User user;
-
-    @NotBlank(message = "Book is mandatory")
-    Book book;
-
-    @NotBlank(message = "Date is mandatory")
-    LocalDate checkoutDate;
-
-    LocalDate returnDate;
+    private String id;
+    private User user;
+    private Book book;
+    private LocalDate checkoutDate;
+    private LocalDate returnDate;
 
 }
